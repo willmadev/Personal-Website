@@ -1,0 +1,16 @@
+.layoutContainer{
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1.pageTitle{
+    margin: 0px auto 30px;
+    text-align: center;
+}
+
+.layoutBody{
+    width: 70%;
+    min-height: calc(100vh - 295px);
+    margin: 0px auto;
+}

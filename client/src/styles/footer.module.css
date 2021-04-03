@@ -1,0 +1,28 @@
+.footerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    margin: 0px;
+    padding: 15px 0px;
+    /* position: fixed;
+    bottom: 0px; */
+    width: 100%;
+}
+
+/* Socials */
+.socialsContainer{
+    display: flex;
+    margin: 5px 0px;
+}
+
+.socialsIcon{
+    padding: 0px;
+    margin: 0px 9px;
+}
+
+/* Copyright */
+.copyright{
+    font-size: 0.65rem;
+    margin: 5px 0px;
+}

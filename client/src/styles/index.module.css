@@ -1,0 +1,46 @@
+/* Landing */
+.landing{
+    height: 100vh;
+    margin: -90px 0px 0px;
+    display: grid;
+}
+
+.landingImage{
+    grid-area: 1/1;
+    z-index: -1;
+}
+
+.landingContainer{
+    grid-area: 1/1;
+    margin: auto auto auto 15%;
+}
+
+.landingTitle{
+    font-size: 3rem;
+    text-align: center;
+    margin: 5px;
+}
+
+.landingCaption{
+    font-family: Raleway, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin: 5px;
+}
+
+/* About */
+.about{
+    margin: 60px auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about *{
+    margin: 15px auto;
+}
+
+hr{
+    width: 65%;
+}

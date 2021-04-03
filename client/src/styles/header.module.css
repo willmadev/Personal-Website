@@ -1,0 +1,40 @@
+/* Header Container */
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 50px;
+}
+
+/* Title */
+.titleContainer{
+    display: flex;
+    align-items: center;
+}
+
+.titleContainer .logo{
+    width: 70px;
+    height: 70px;
+}
+
+.titleContainer .title{
+    font-family: Raleway, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: auto 15px;
+}
+
+/* Nav Menu */
+.navMenu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navItem{
+    font-family: "Nunito", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0px 15px;
+    color: var(--text-color);
+}
