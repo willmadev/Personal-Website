@@ -13,9 +13,9 @@ import * as styles from "../styles/index.module.css"
 
 export default function Home(props) {
   return (
-    <div className={styles.homeContainer}>
+    <div>
       <Header/>
-      <div className={styles.main}>
+      <div>
         <div className={styles.landing}>
           <StaticImage className={styles.landingImage} src="../images/home_background.png" placeholder="blurred" />
           <div className={styles.landingContainer}>
