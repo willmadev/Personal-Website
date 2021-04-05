@@ -4,13 +4,13 @@
 }
 
 h1.pageTitle{
-    margin: 0px auto 30px;
+    margin: 0px auto;
     text-align: center;
 }
 
 .layoutBody{
-    width: 60%;
+    width: 65%;
     min-width: 900px;
-    min-height: calc(100vh - 335px);
-    margin: 0px auto;
+    min-height: calc(100vh - 90px - 53px - 35px - 94.5px);
+    margin: 35px auto 0px;
 }

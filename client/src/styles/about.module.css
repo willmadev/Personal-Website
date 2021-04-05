@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto min-content auto;
     gap: 20px 100px;
-    margin: 100px auto auto;
+    padding: 50px 0px;
     width: 100%;
 }
 
@@ -35,4 +35,5 @@
 
 .btnIcon{
     margin: auto;
+    vertical-align: -10%;
 }
