@@ -14,6 +14,12 @@ import * as styles from "../styles/index.module.css"
 export default function Home(props) {
   return (
     <div>
+      <SEO 
+        title="Willma's Here - Home" 
+        description="Hi! I'm Willma. I'm a student and full stack web developer based in Hong Kong and California. Learn more about me!" 
+        keywords={["Willma", "Developer"]}
+        lang="en"
+      />
       <Header/>
       <div>
         <div className={styles.landing}>

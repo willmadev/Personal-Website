@@ -9,10 +9,17 @@ import Layout from "../components/layout"
 import resumeFile from "/static/resume.pdf"
 
 import * as styles from "../styles/about.module.css"
+import SEO from "../components/seo"
 
 export default function About(){
     return(
         <div>
+            <SEO 
+                title="About"
+                description="I'm a full stack web developer based in Hong Kong and California. Learn more about me here!"
+                keywords={["Willma", "Developer", "About", "For Hire", "Full Stack Web Developer"]}
+                lang="en"
+            />
             <Layout pageTitle="About">
                 <div className={styles.contentContainer}>
                     <StaticImage className={styles.image} placeholder="blurred" src="../images/headshot.png"/>

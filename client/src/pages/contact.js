@@ -5,10 +5,17 @@ import Layout from "../components/layout"
 import ContactForm from "../components/contactForm"
 
 import * as styles from "../styles/contact.module.css"
+import SEO from "../components/seo"
 
 export default function Contact() {
     return(
         <div>
+            <SEO 
+                title="Contact" 
+                description="I'm Willma, a full stack web developer. Contact me now to find out how I can help you with you projects!" 
+                keywords={["Willma", "Developer", "Contact"]}
+                lang="en"
+            />
             <Layout pageTitle="Contact">
                 <div className={styles.contentContainer}>
                     <div className={styles.descriptionContainer}>
