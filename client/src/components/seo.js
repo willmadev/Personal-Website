@@ -1,89 +1,82 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import * as React from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+export default function SEO ({ title, description, keywords, lang}) {
+  const { pathname } = useLocation()
+  const { site } = useStaticQuery(query)
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    siteUrl,
+    author: defaultAuthor
+  } = site.siteMetadata
+
+  const seo = {
+    title: title ? `${title} - Willma's Here` : defaultTitle,
+    description: description || defaultDescription,
+    keywords: keywords ? keywords.join(",") : "",
+    lang: lang || "",
+    author: defaultAuthor
+  }
+
 
   return (
-    <Helmet
+    <Helmet 
       htmlAttributes={{
-        lang,
+        lang: seo.lang,
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      title={ seo.title }
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: seo.description,
         },
         {
-          property: `og:title`,
-          content: title,
+          name: "keywords",
+          content: seo.keywords,
         },
         {
-          property: `og:description`,
-          content: metaDescription,
+          property: "og:title",
+          content: seo.title
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: "og:description",
+          content: seo.description
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: "og:type",
+          content: "website"
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          name: "twitter:creator",
+          content: seo.author
         },
         {
-          name: `twitter:title`,
-          content: title,
+          name: "twitter:title",
+          content: seo.title
         },
         {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+          name: "twitter.description",
+          content: seo.description
+        }
+      ]} 
     />
   )
 }
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
-
-export default SEO
+const query = graphql`
+  query SEO {
+    site{
+      siteMetadata {
+        title
+        description
+        author
+        siteUrl
+      }
+    }
+  }
+`

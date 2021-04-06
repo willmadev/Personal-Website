@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Willma's Here`,
-    description: `hehe`,
+    description: "Hi! I'm Willma. I'm a junior at The Webb Schools in California, " + 
+      "and I'm based in Hong Kong. Over the years, I have learned a lot about multiple areas, " + 
+      "from game development to web development. I am currently learning React and Gatsby, as well as Node JS.",
     author: `Willma`,
+    siteUrl: "https://willma.me/",
+    
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

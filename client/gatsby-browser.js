@@ -8,5 +8,6 @@
 
 import "@fontsource/raleway/600.css";
 import "@fontsource/noto-sans-sc";
+import "@fontsource/ruda";
 
 import "./src/styles/global.module.css";

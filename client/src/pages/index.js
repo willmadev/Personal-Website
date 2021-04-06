@@ -13,9 +13,15 @@ import * as styles from "../styles/index.module.css"
 
 export default function Home(props) {
   return (
-    <div className={styles.homeContainer}>
+    <div>
+      <SEO 
+        title="Willma's Here - Home" 
+        description="Hi! I'm Willma. I'm a student and full stack web developer based in Hong Kong and California. Learn more about me!" 
+        keywords={["Willma", "Developer"]}
+        lang="en"
+      />
       <Header/>
-      <div className={styles.main}>
+      <div>
         <div className={styles.landing}>
           <StaticImage className={styles.landingImage} src="../images/home_background.png" placeholder="blurred" />
           <div className={styles.landingContainer}>
