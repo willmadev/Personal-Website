@@ -23,7 +23,7 @@ export default function Home(props) {
       <Header/>
       <div>
         <div className={styles.landing}>
-          <StaticImage className={styles.landingImage} src="../images/home_background.png" placeholder="blurred" />
+          <StaticImage className={styles.landingImage} src="../images/home_background.png" placeholder="blurred" objectFit="cover" objectPosition="70% 50%"/>
           <div className={styles.landingContainer}>
             <h1 className={styles.landingTitle}>Willma's Here</h1>
             <p className={styles.landingCaption}>Student | Developer</p>

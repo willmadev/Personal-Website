@@ -7,10 +7,11 @@
 
 .landingImage{
     grid-area: 1/1;
-    z-index: -1;
+    z-index: 1;
 }
 
 .landingContainer{
+    z-index: 2;
     grid-area: 1/1;
     margin: auto auto auto 15%;
 }
@@ -43,4 +44,58 @@
 
 hr{
     width: 65%;
+}
+
+@media only screen and (max-width: 600px) {
+    .landing{
+        height: auto;
+        width: 100vw;
+        margin: -76px 0px 0px;
+        grid-template-rows: auto min-content;
+    }
+
+    .landingImage div img{
+        width: 100vw;
+        height: 40vh;
+        object-fit:scale-down;
+    }
+
+    .landingContainer{
+        grid-column: 1;
+        grid-row: 2;
+        margin: 10px;
+        height: fit-content;
+    }
+
+    .landingTitle{
+        font-size: 2.5rem;
+    }
+
+    .landingCaption{
+        font-size: 1.3rem;
+    }
+
+    .about{
+        margin: 10px auto 30px;
+        width: 80%;
+    }
+
+    .about *{
+        margin: 7px auto;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .landing{
+        height: auto;
+        width: 100vw;
+    }
+
+    .landingContainer{
+        margin: auto auto auto 7%;
+    }
+
+    .about{
+        width: 70%;
+    }
 }

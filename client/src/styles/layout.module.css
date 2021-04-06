@@ -10,7 +10,24 @@ h1.pageTitle{
 
 .layoutBody{
     width: 65%;
-    min-width: 900px;
     min-height: calc(100vh - 90px - 53px - 35px - 94.5px);
     margin: 35px auto 0px;
+}
+
+@media only screen and (max-width: 600px){
+    h1.pageTitle{
+        margin: 15px auto;
+    }
+
+    .layoutBody{
+        width: 80%;
+        min-height: calc(100vh - 76px - 77px - 15px - 90px);
+        margin: 15px auto;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .layoutBody{
+        width: 70%;
+    }
 }
