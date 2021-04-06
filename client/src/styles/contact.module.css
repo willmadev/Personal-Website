@@ -1,7 +1,7 @@
 .contentContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto min-content;
+    grid-template-rows: 1fr 3fr;
     gap: 70px 50px;
 }
 
@@ -43,4 +43,26 @@
     grid-row: 1/3;
     grid-column: 2;
     margin-right: -30px;
+}
+
+@media only screen and (max-width: 1024px){
+    .contentContainer{
+        padding-top: 20px;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        row-gap: 50px;
+    }
+
+    .contactForm{
+        grid-row: 3;
+        grid-column: 1;
+        margin: 0px;
+    }
+}
+
+@media only screen and (max-width: 649px){
+    .contentContainer{
+        padding-top: 0;
+        row-gap: 30px;
+    }
 }

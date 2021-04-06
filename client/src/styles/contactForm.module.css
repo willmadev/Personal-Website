@@ -1,6 +1,6 @@
 .formContainer{
     width: 100%;
-    height: 100%;
+    height: calc(100% - 50px);
     background-color: #4B4B4B;
     padding: 25px 45px;
 }
@@ -33,7 +33,7 @@
 
 .form textarea{
     width: calc(100% - 28px);
-    height: calc(100% - 3 * 47px - 20px);
+    height: 200px;
     padding: 6px 12px;
     background: none;
     border: 2px solid #A3A39A;
@@ -73,4 +73,16 @@
     background-color: var(--button-hover-color);
     color: var(--button-hover-color);
     color: var(--text-color);
+}
+
+@media only screen and (max-width: 1024px){
+   .formContainer{
+       width: calc(100% - 30px);
+       height: calc(100% - 40px);
+       padding: 20px 15px;
+   }
+
+   .form textarea{
+       height: 130px;
+   }
 }

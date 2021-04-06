@@ -8,6 +8,7 @@
 
 /* Title */
 .titleContainer{
+    z-index: 3;
     display: flex;
     align-items: center;
 }
@@ -27,6 +28,7 @@
 
 /* Nav Menu */
 .navMenu{
+    z-index: 3;
     display: flex;
     justify-content: space-between;
 }
@@ -37,4 +39,77 @@
     font-weight: 500;
     margin: 0px 15px;
     color: var(--text-color);
+}
+
+.mobileNavMenuContainer{
+    display: none;
+}
+
+@media only screen and (max-width: 649px){
+    .headerContainer{
+        padding: 8px 20px;
+        margin: 0px;
+        background-color:#77735f;
+    }
+
+    .titleContainer .logo{
+        width: 60px;
+        height: 60px;
+    }
+
+    .navMenu{
+        display: none;
+    }
+
+    .mobileNavMenuContainer{
+        z-index: 3;
+        display: block;
+    }
+
+    .menuIcon{
+        height: 30px;
+        width: 30px;
+        color: var(--text-color);
+    }
+
+    .mobileNavMenu.active{
+        display: block;
+        z-index: 1;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        width: 40%;
+        margin: 0;
+        padding-right: 50px;
+        padding-top: 70px;
+        background-color: #77735f;
+        list-style-type: none;
+        overflow-y: hidden;
+    }
+
+    .mobileNavMenu{
+        display: none;
+    }
+
+    .mobileNavMenu li{
+        font-family: "Nunito", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin: 10px 0px;
+        text-align: right;
+    }
+
+    .mobileNavMenu li a{
+        color: var(--text-color);
+    }
+
+    .menuCloseIcon{
+        z-index: 1;
+        position: absolute;
+        top: 17px;
+        right: 17px;
+        width: 35px;
+        height: 35px;
+    }
 }
