@@ -36,6 +36,30 @@ module.exports = {
       resolve: 'gatsby-plugin-react-css-modules'
     },
     `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locale`,
+        path: `${__dirname}/src/locales`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localJsonSourceName: `locale`,
+        languages: [`en`, `zh`],
+        defaultLanguage: `en`,
+        siteUrl: `https://willma.me`,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false
+          },
+        },
+        pages: [
+          // add excluded pages here
+        ]
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

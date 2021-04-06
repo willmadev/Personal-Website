@@ -1,7 +1,9 @@
-import { Link } from "gatsby";
 import React, { useState } from "react";
 import { StaticImage } from "gatsby-plugin-image"
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaGlobe, FaTimes } from "react-icons/fa";
+import { useTranslation, Link } from "gatsby-plugin-react-i18next"
+
+import Button from "./button"
 
 import * as styles from "../styles/header.module.css";
 
@@ -11,6 +13,7 @@ export default function Header({  }) {
         setClick(!click);
         document.body.style.overflowY = click ? "auto":"hidden";
     }
+    const { t } = useTranslation();
 
     return (
         <header className={styles.headerContainer}>
@@ -21,19 +24,28 @@ export default function Header({  }) {
                 <Link className={styles.title} to="/">Willma</Link>
             </div>
             <nav className={styles.navMenu}>
-                <Link className={styles.navItem} to="/">Home</Link>
-                <Link className={styles.navItem} to="/about/">About</Link>
-                <Link className={styles.navItem} to="/projects/">Projects</Link>
-                <Link className={styles.navItem} to="/contact/">Contact</Link>
+                <Link className={styles.navItem} to="/">{t("common:links.home", "Home")}</Link>
+                <Link className={styles.navItem} to="/about/">{t("common:links.about", "About")}</Link>
+                <Link className={styles.navItem} to="/projects/">{t("common:links.projects", "Projects")}</Link>
+                <Link className={styles.navItem} to="/contact/">{t("common:links.contact", "Contact")}</Link>
+                <div className={styles.langSelectorDropdown}>
+                    <button className={styles.langSelectorButton}><FaGlobe/></button>
+                    <a>English</a>
+                    <a>中文</a>
+                </div>
             </nav>
             <nav className={styles.mobileNavMenuContainer}>
                 <FaBars className={styles.menuIcon} onClick={handleClick}/>
                 <ul className={click ? `${styles.mobileNavMenu} ${styles.active}`: styles.mobileNavMenu}>
                     <FaTimes className={styles.menuCloseIcon} onClick={handleClick}/>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/">Home</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/about/">About</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/projects/">Projects</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/contact/">Contact</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/">{t("common:header.home", "Home")}</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/about/">{t("common:header.about", "About")}</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/projects/">{t("common:header.projects", "Projects")}</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/contact/">{t("common:header.contact", "Contact")}</Link></li>
+                    <div className={styles.mobileLangSelector}>
+                        <Button>English</Button>
+                        <Button>中文</Button>
+                    </div>
                 </ul>
             </nav>
         </header>

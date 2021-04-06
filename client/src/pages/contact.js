@@ -1,5 +1,7 @@
 import * as React from "react"
 import { FaLinkedin, FaGithub, FaInstagram, FaTelegramPlane } from 'react-icons/fa'
+import { graphql } from "gatsby"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 
 import Layout from "../components/layout"
 import ContactForm from "../components/contactForm"
@@ -8,22 +10,23 @@ import * as styles from "../styles/contact.module.css"
 import SEO from "../components/seo"
 
 export default function Contact() {
+    const { t } = useTranslation();
     return(
         <div>
             <SEO 
-                title="Contact" 
+                title={t("contact:pageTitle", "Contact")} 
                 description="I'm Willma, a full stack web developer. Contact me now to find out how I can help you with you projects!" 
                 keywords={["Willma", "Developer", "Contact"]}
                 lang="en"
             />
-            <Layout pageTitle="Contact">
+            <Layout pageTitle={t("contact:pageTitle", "Contact")}>
                 <div className={styles.contentContainer}>
                     <div className={styles.descriptionContainer}>
-                        <h2>Hire Me</h2>
-                        <p>Contact me directly to find out how I can help you with your projects. I look forward to hearing from you :)</p>
+                        <h2>{t("contact:description.header", "Hire Me")}</h2>
+                        <p>{t("contact:description.description", "Contact me directly to find out how I can help you with your projects. I look forward to hearing from you :)")}</p>
                     </div>
                     <div className={styles.socialsContainer}>
-                        <h2>Follow My Socials</h2>
+                        <h2>{t("contact:socials.header", "Follow My Socials")}</h2>
                         <div className={styles.socialLinkContainer}>
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/willmas-here/">
                                 <FaLinkedin/> @willmas-here
@@ -47,3 +50,19 @@ export default function Contact() {
         </div>
     )
 }
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(
+      filter: {ns: {in: ["contact", "common"]}, language: {eq: $language}}
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

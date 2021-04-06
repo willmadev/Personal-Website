@@ -63,7 +63,7 @@ hr{
     .landingContainer{
         grid-column: 1;
         grid-row: 2;
-        margin: 10px;
+        padding-left: 6.5%;
         height: fit-content;
     }
 

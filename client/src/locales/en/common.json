@@ -1,0 +1,15 @@
+{
+    "button": {
+        "learnMore": "Learn More",
+        "keepReading": "Keep Reading",
+        "seeResume": "See Resume",
+        "contactMe": "Contact Me",
+        "submit": "Submit"
+    },
+    "links": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact"
+    }
+}

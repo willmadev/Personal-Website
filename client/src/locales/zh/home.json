@@ -1,0 +1,12 @@
+{
+    "landing": {
+        "landingCaption": "学生 | 程序员"
+    },
+    "about": {
+        "header": "关于我",
+        "description": "我是Willma。我是一名 The Webb Schools 的高中学生，目前在香港工作。往年我学过多方面的知识，如用 Unity 开发游戏。我现在正在学全栈开发， 前端用 React 和 Gatsby，后端用 Node.JS。"
+    },
+    "featuredProject": {
+        "header": "最新项目"
+    }
+}

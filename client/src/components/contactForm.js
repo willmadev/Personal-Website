@@ -1,10 +1,11 @@
 import * as React from "react"
+import { withTranslation } from "react-i18next";
 
 import Button from "../components/button"
 
 import * as styles from "../styles/contactForm.module.css"
 
-export default class ContactForm extends React.Component {
+class ContactForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -36,17 +37,21 @@ export default class ContactForm extends React.Component {
     }
 
     render(){
+        const { t } = this.props;
+
         return(
             <div className={styles.formContainer}>
-                <h2>Contact Form</h2>
+                <h2>{t("contact:form.header", "Contact Form")}</h2>
                 <form className={styles.form} name="contact" onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" required placeholder="Name" value={this.state.name} onChange={this.handleChange} />
-                    <input type="email" name="email" required placeholder="Email" value={this.state.email} onChange={this.handleChange} />
-                    <input type="text" name="subject" required placeholder="Subject" value={this.state.subject} onChange={this.handleChange} />
-                    <textarea name="message" required placeholder="Message" value={this.state.message} onChange={this.handleChange} />
-                    <input type="submit" name="submit" />
+                    <input type="text" name="name" required placeholder={t("contact:form.name", "Name")} value={this.state.name} onChange={this.handleChange} />
+                    <input type="email" name="email" required placeholder={t("contact:form.email", "Email")} value={this.state.email} onChange={this.handleChange} />
+                    <input type="text" name="subject" required placeholder={t("contact:form.subject", "Subject")} value={this.state.subject} onChange={this.handleChange} />
+                    <textarea name="message" required placeholder={t("contact:form.message", "Message")} value={this.state.message} onChange={this.handleChange} />
+                    <input type="submit" name="submit" value={t("common:button.submit", "Submit")} />
                 </form>
             </div>
         )
     }
 }
+
+export default withTranslation()(ContactForm)
