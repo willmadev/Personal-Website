@@ -50,3 +50,7 @@ a{
 a:hover{
     color: var(--link-hover-color);
 }
+
+ul{
+    color: var(--text-color);
+}
