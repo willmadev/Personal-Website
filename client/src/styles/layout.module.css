@@ -6,12 +6,14 @@
 h1.pageTitle{
     margin: 0px auto;
     text-align: center;
+    height: 60px;
 }
 
 .layoutBody{
     width: 65%;
-    min-height: calc(100vh - 90px - 53px - 35px - 94.5px);
-    margin: 35px auto 0px;
+    min-height: calc(100vh - 90px - 60px - 70px - 94.5px);
+    height: fit-content;
+    margin: 35px auto;
 }
 
 @media only screen and (max-width: 600px){

@@ -1,0 +1,17 @@
+{
+    "pageTitle": "Contact",
+    "description": {
+        "header": "Hire Me",
+        "description": "Contact me directly to find out how I can help you with your projects. I look forward to hearing from you :)"
+    },
+    "socials": {
+        "header":"Follow My Socials"
+    },
+    "form": {
+        "header": "Contact Form",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
+    }
+}

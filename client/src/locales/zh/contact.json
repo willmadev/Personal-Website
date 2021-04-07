@@ -1,0 +1,18 @@
+
+{
+    "pageTitle": "联系资料",
+    "description": {
+        "header": "雇佣我",
+        "description": "请直接与我联系，以了解我如何为您提供 Web 开发服务。我期待您的回音！"
+    },
+    "socials": {
+        "header":"关注我"
+    },
+    "form": {
+        "header": "联系表",
+        "name": "姓名",
+        "email": "电邮",
+        "subject": "主题",
+        "message": "信息"
+    }
+}

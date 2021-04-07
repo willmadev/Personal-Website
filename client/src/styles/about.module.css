@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto min-content auto;
     gap: 20px 100px;
-    padding: 50px 0px;
+    padding: 25px 0px;
     width: 100%;
 }
 
@@ -15,8 +15,8 @@
 .contentContainer .header{
     grid-row: 1;
     grid-column: 2;
-    /* height: min-content; */
     margin: 0px auto;
+    text-align: center;
 }
 
 .contentContainer .description{

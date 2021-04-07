@@ -1,0 +1,15 @@
+{
+    "button": {
+        "learnMore": "了解更多",
+        "keepReading": "继续读",
+        "seeResume": "简历下载",
+        "contactMe": "联系我",
+        "submit": "交付信息"
+    },
+    "links": {
+        "home": "首页",
+        "about": "关于我",
+        "projects": " 项目",
+        "contact": "联系"
+    }
+}
