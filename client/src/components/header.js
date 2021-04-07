@@ -1,19 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image"
 import { FaBars, FaGlobe, FaTimes } from "react-icons/fa";
-import { useTranslation, Link } from "gatsby-plugin-react-i18next"
+import { useTranslation, Link, useI18next } from "gatsby-plugin-react-i18next"
 
 import Button from "./button"
 
 import * as styles from "../styles/header.module.css";
 
-export default function Header({  }) {
-    const [click, setClick] = useState(false);
-    const handleClick = () => {
-        setClick(!click);
-        document.body.style.overflowY = click ? "auto":"hidden";
+export default function Header() {
+    const [mobileNavOpen, setMobileNav] = useState(false);
+    const [langDropdownOpen, setLangDropdown] = useState(false);
+
+    const langSelectorDropdownRef = useRef(null);
+    const mobileNavMenuRef = useRef(null);
+
+    function useOutsideClick(ref) {
+        useEffect(() => {
+            /**
+             * Alert if clicked on outside of element
+             */
+            function handleClickOutside(event) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    if (ref === mobileNavMenuRef){
+                        setMobileNav(false);
+                    } else if (ref === langSelectorDropdownRef){
+                        setLangDropdown(false);
+                    }
+                }
+            }
+            // Bind the event listener
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                // Unbind the event listener on clean up
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
     }
+
+    useOutsideClick(langSelectorDropdownRef);
+    useOutsideClick(mobileNavMenuRef);
+
     const { t } = useTranslation();
+    const {languages, originalPath} = useI18next();
 
     return (
         <header className={styles.headerContainer}>
@@ -28,23 +56,25 @@ export default function Header({  }) {
                 <Link className={styles.navItem} to="/about/">{t("common:links.about", "About")}</Link>
                 <Link className={styles.navItem} to="/projects/">{t("common:links.projects", "Projects")}</Link>
                 <Link className={styles.navItem} to="/contact/">{t("common:links.contact", "Contact")}</Link>
-                <div className={styles.langSelectorDropdown}>
-                    <button className={styles.langSelectorButton}><FaGlobe/></button>
-                    <a>English</a>
-                    <a>中文</a>
+                <div ref={langSelectorDropdownRef} className={styles.langSelectorContainer}>
+                    <button className={styles.langSelectorButton} onClick={() => setLangDropdown(!langDropdownOpen)}><FaGlobe/></button>
+                    <ul className={langDropdownOpen ? `${styles.langSelectorDropdown} ${styles.active}` : styles.langSelectorDropdown}>
+                        <Link to={originalPath} language="en">English</Link>
+                        <Link to={originalPath} language="zh">中文</Link>
+                    </ul>
                 </div>
             </nav>
-            <nav className={styles.mobileNavMenuContainer}>
-                <FaBars className={styles.menuIcon} onClick={handleClick}/>
-                <ul className={click ? `${styles.mobileNavMenu} ${styles.active}`: styles.mobileNavMenu}>
-                    <FaTimes className={styles.menuCloseIcon} onClick={handleClick}/>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/">{t("common:header.home", "Home")}</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/about/">{t("common:header.about", "About")}</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/projects/">{t("common:header.projects", "Projects")}</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={handleClick} to="/contact/">{t("common:header.contact", "Contact")}</Link></li>
-                    <div className={styles.mobileLangSelector}>
-                        <Button>English</Button>
-                        <Button>中文</Button>
+            <nav ref={mobileNavMenuRef} className={styles.mobileNavMenuContainer}>
+                <FaBars className={styles.menuIcon} onClick={() => setMobileNav(true)}/>
+                <ul className={mobileNavOpen ? `${styles.mobileNavMenu} ${styles.active}`: styles.mobileNavMenu}>
+                    <FaTimes className={styles.menuCloseIcon} onClick={() => setMobileNav(false)}/>
+                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/">{t("common:links.home", "Home")}</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/about/">{t("common:links.about", "About")}</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/projects/">{t("common:links.projects", "Projects")}</Link></li>
+                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/contact/">{t("common:links.contact", "Contact")}</Link></li>
+                    <div className={styles.mobileNavLangSelector}>
+                        <Link to={originalPath} language="en" onClick={() => setMobileNav(false)}>English</Link>
+                        <Link to={originalPath} language="zh" onClick={() => setMobileNav(false)}>中文</Link>
                     </div>
                 </ul>
             </nav>

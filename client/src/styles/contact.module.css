@@ -47,7 +47,6 @@
 
 @media only screen and (max-width: 1024px){
     .contentContainer{
-        padding-top: 20px;
         grid-template-columns: auto;
         grid-template-rows: auto;
         row-gap: 50px;
@@ -62,7 +61,6 @@
 
 @media only screen and (max-width: 649px){
     .contentContainer{
-        padding-top: 0;
         row-gap: 30px;
     }
 }

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <SEO 
-        title="Willma's Here - Home" 
+        title="Home" 
         description="Hi! I'm Willma. I'm a student and full stack web developer based in Hong Kong and California. Learn more about me!" 
         keywords={["Willma", "Developer"]}
         lang="en"
