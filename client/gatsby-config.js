@@ -10,21 +10,11 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Willmas Here`,
+        short_name: `Willmas Here`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -57,9 +47,73 @@ module.exports = {
         },
         pages: [
           // add excluded pages here
+          {
+            matchPath: '/:lang?/projects',
+            languages: ['en']
+          },
+          {
+            matchPath: '/:lang?/projects/:project?',
+            languages: ['en']
+          },
         ]
       }
-    }
+    },
+
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-embed-gist`,
+            options: {
+              username: "willmas-here"
+            }
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1920
+            }
+          },
+        ]
+      }
+    },
+
+    // projects static files
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "assets",
+        path: `${__dirname}/static/assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects`,
+      },
+    },
+
+    
+    
+
+    // images
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+
+    `gatsby-plugin-netlify-cms`,
+
+
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: willmas-here/Personal-Website
+  branch: main
+media_folder: client/static/assets
+public_folder: /assets
+site_url: https://willma.me
+collections:
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: client/src/projects
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: path, label: Path, required: false }
+      - { name: date, label: Date, widget: datetime }
+      - { name: summary, label: Summary }
+      - { name: featuredImage, label: Featured Image, widget: image}
+      - { name: body, label: Body, widget: markdown }

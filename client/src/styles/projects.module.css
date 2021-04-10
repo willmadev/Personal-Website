@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.projectCard{
+    display: block;
+    width: 40%;
+    color: var(--text-color);
+}
+
+.projectCard:hover{
+    color: var(--link-color);
+}
+
+.projectCardIamge img{
+    aspect-ratio: 16 / 9;
+}
+
+.projectCardBody{
+    padding: 10px;
+}
+
+.projectCardBody h2{
+    margin: 0px;
+    margin-bottom: 13px;
+    color: inherit;
+}
+
+.projectCardBody p{
+    color: inherit;
+}
