@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { createRef } from "react"
 import { withTranslation } from "react-i18next";
 
 import * as styles from "../styles/contactForm.module.css"
@@ -12,6 +12,7 @@ function encode(data) {
 class ContactForm extends React.Component {
     constructor(props){
         super(props);
+        this.formRef = createRef()
         this.state = {
             name: "",
             email: "",
@@ -35,7 +36,7 @@ class ContactForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const form = event.target;
+        const form = this.formRef.current;
         
         fetch("/", {
             method: "POST",
