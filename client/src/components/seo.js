@@ -1,22 +1,18 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
 export default function SEO ({ title, description, keywords, lang}) {
-  const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
   const {
     title: defaultTitle,
     description: defaultDescription,
-    siteUrl,
     author: defaultAuthor
   } = site.siteMetadata
 
   const seo = {
-    title: title ? `${title} - Willma's Here` : defaultTitle,
+    title: title ? `${title} | Willma's Here` : defaultTitle,
     description: description || defaultDescription,
     keywords: keywords ? keywords.join(",") : "",
     lang: lang || "",
