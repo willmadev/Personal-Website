@@ -16,7 +16,13 @@ h1.pageTitle{
     margin: 35px auto;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 1024px){
+    .layoutBody{
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 649px){
     h1.pageTitle{
         margin: 15px auto;
     }
@@ -25,11 +31,5 @@ h1.pageTitle{
         width: 80%;
         min-height: calc(100vh - 76px - 77px - 15px - 90px);
         margin: 15px auto;
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .layoutBody{
-        width: 70%;
     }
 }

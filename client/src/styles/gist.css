@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.gist .gist-meta{
+	width: calc(100% - 20px);	
+}
+
 .gist-meta,
 .gist-file,
 .gist-data,

@@ -31,6 +31,7 @@
 
 .socialLink{
     margin: 6px 0px;
+    width: fit-content;
 }
 
 .socialLink *{

@@ -27,7 +27,7 @@ export default function Template({data}) {
                         </p>
                         <p className={styles.summary}>{frontmatter.summary}</p>
                     </div>
-                    <GatsbyImage image={markdownRemark.fields.featuredImage.childImageSharp.gatsbyImageData} />
+                    <GatsbyImage className={styles.featuredImage} image={markdownRemark.fields.featuredImage.childImageSharp.gatsbyImageData} />
                 </div>
                 <div className={styles.main} dangerouslySetInnerHTML={{ __html: html }} />
             </Layout>
