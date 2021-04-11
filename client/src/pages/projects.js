@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { Link } from "gatsby-plugin-react-i18next"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,10 +11,10 @@ export default function Projects({ data }) {
     console.log(data)
     return (
         <div>
-            <SEO title=""
-                description=""
-                keywords=""
-                lang=""
+            <SEO title="Projects"
+                description="A documentation of projects I have worked on in the past. Check it out to see my work!"
+                keywords={["Projects, Blog, Web Development, Past Work, Testimonials"]}
+                lang="en"
             />
             <Layout pageTitle="Projects">
                 <div className={styles.container}>
@@ -34,26 +34,37 @@ export default function Projects({ data }) {
 }
 
 export const query = graphql`
-    query MyQuery {
+    query MyQuery ($language: String!){
         allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
-        edges {
-            node {
-                frontmatter {
-                    path
-                    title
-                    date
-                    summary
-                }
-                fields {
-                    featuredImage {
-                        childImageSharp {
-                            gatsbyImageData
+            edges {
+                node {
+                    frontmatter {
+                        path
+                        title
+                        date
+                        summary
+                    }
+                    fields {
+                        featuredImage {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
                         }
                     }
+                    id
                 }
-            id
+            }
+        }
+        locales: allLocale(
+            filter: {ns: {in: ["common"]}, language: {eq: $language}}
+        ) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
             }
         }
     }
-}  
 `

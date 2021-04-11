@@ -1,12 +1,13 @@
 .container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .projectCard{
     display: block;
-    width: 40%;
+    width: 45%;
+    margin-bottom: 100px;
     color: var(--text-color);
 }
 
@@ -30,4 +31,14 @@
 
 .projectCardBody p{
     color: inherit;
+}
+
+@media only screen and (max-width: 649px){
+    .container{
+        padding-top: 20px;
+    }
+    .projectCard{
+        width: 100%;
+        margin-bottom: 6s0px;
+    }
 }

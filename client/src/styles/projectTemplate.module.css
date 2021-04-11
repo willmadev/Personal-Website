@@ -16,6 +16,10 @@
     margin-bottom: 40px;
 }
 
+.featuredImage{
+    width: 100%;
+}
+
 .main *{
     width: 90%;
     margin: 10px auto;
@@ -42,4 +46,19 @@
 
 .main blockquote{
     padding: 20px 0px;
+}
+
+@media only screen and (max-width: 600px){
+    .meta{
+        width: 100%;
+    }
+
+    .featuredImage{
+        width: 110%;
+        margin-left: -5%;
+    }
+
+    .main *{
+        width: 100%;
+    }
 }

@@ -75,6 +75,12 @@
     color: var(--text-color);
 }
 
+.successMessage{
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #39b94e;
+}
+
 @media only screen and (max-width: 1024px){
    .formContainer{
        width: calc(100% - 30px);

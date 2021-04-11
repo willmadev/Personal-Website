@@ -9,7 +9,15 @@
     "links": {
         "home": "首页",
         "about": "关于我",
-        "projects": " 项目",
+        "projects": " 作品",
         "contact": "联系"
+    },
+    "labels": {
+        "languageSelector": "语言菜单",
+        "email": "电邮",
+        "linkedin": "Linkedin",
+        "github": "Github",
+        "instagram": "Instagram",
+        "telegram": "Telegram"
     }
 }

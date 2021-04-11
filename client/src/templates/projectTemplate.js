@@ -27,7 +27,7 @@ export default function Template({data}) {
                         </p>
                         <p className={styles.summary}>{frontmatter.summary}</p>
                     </div>
-                    <GatsbyImage image={markdownRemark.fields.featuredImage.childImageSharp.gatsbyImageData} />
+                    <GatsbyImage className={styles.featuredImage} image={markdownRemark.fields.featuredImage.childImageSharp.gatsbyImageData} />
                 </div>
                 <div className={styles.main} dangerouslySetInnerHTML={{ __html: html }} />
             </Layout>
@@ -36,7 +36,7 @@ export default function Template({data}) {
 }
 
 export const pageQuery = graphql`
-    query($slug: String!) {
+    query($slug: String!, $language: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
             frontmatter {
@@ -50,6 +50,18 @@ export const pageQuery = graphql`
                     childImageSharp {
                         gatsbyImageData
                     }
+                }
+            }
+        }
+
+        locales: allLocale(
+            filter: {ns: {in: ["common"]}, language: {eq: $language}}
+        ) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
                 }
             }
         }

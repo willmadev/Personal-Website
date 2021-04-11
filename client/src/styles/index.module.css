@@ -46,7 +46,22 @@ hr{
     width: 65%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px){
+    .landing{
+        height: auto;
+        width: 100vw;
+    }
+
+    .landingContainer{
+        margin: auto auto auto 7%;
+    }
+
+    .about{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 649px) {
     .landing{
         height: auto;
         width: 100vw;
@@ -63,8 +78,8 @@ hr{
     .landingContainer{
         grid-column: 1;
         grid-row: 2;
-        padding-left: 6.5%;
         height: fit-content;
+        margin: 30px auto;
     }
 
     .landingTitle{
@@ -82,20 +97,5 @@ hr{
 
     .about *{
         margin: 7px auto;
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .landing{
-        height: auto;
-        width: 100vw;
-    }
-
-    .landingContainer{
-        margin: auto auto auto 7%;
-    }
-
-    .about{
-        width: 70%;
     }
 }

@@ -28,7 +28,7 @@ export default function Home() {
           <StaticImage className={styles.landingImage} src="../images/home_background.png" placeholder="blurred" objectFit="cover" objectPosition="70% 50%" alt="Background iamge of Willma"/>
           <div className={styles.landingContainer}>
             <h1 className={styles.landingTitle}>Willma's Here</h1>
-            <p className={styles.landingCaption}>{t("home:landing.landingCaption", "Student | Developer")}</p>
+            <p className={styles.landingCaption}>{t("home:landing.caption", "Student | Developer")}</p>
           </div>
         </div>
         <div className={styles.about}>

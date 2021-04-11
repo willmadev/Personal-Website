@@ -45,17 +45,6 @@ module.exports = {
             escapeValue: false
           },
         },
-        pages: [
-          // add excluded pages here
-          {
-            matchPath: '/:lang?/projects',
-            languages: ['en']
-          },
-          {
-            matchPath: '/:lang?/projects/:project?',
-            languages: ['en']
-          },
-        ]
       }
     },
 

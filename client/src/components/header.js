@@ -3,8 +3,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import { FaBars, FaGlobe, FaTimes } from "react-icons/fa";
 import { useTranslation, Link, useI18next } from "gatsby-plugin-react-i18next"
 
-import Button from "./button"
-
 import * as styles from "../styles/header.module.css";
 
 export default function Header() {
@@ -41,7 +39,7 @@ export default function Header() {
     useOutsideClick(mobileNavMenuRef);
 
     const { t } = useTranslation();
-    const {languages, originalPath} = useI18next();
+    const {originalPath} = useI18next();
 
     return (
         <header className={styles.headerContainer}>
@@ -57,7 +55,12 @@ export default function Header() {
                 <Link className={styles.navItem} to="/projects/">{t("common:links.projects", "Projects")}</Link>
                 <Link className={styles.navItem} to="/contact/">{t("common:links.contact", "Contact")}</Link>
                 <div ref={langSelectorDropdownRef} className={styles.langSelectorContainer}>
-                    <button className={styles.langSelectorButton} onClick={() => setLangDropdown(!langDropdownOpen)}><FaGlobe/></button>
+                    <button className={styles.langSelectorButton}
+                        aria-label={t("common:labels.languageSelector", "Language Selector")}
+                        onClick={() => setLangDropdown(!langDropdownOpen)}
+                        >
+                            <FaGlobe/>
+                    </button>
                     <ul className={langDropdownOpen ? `${styles.langSelectorDropdown} ${styles.active}` : styles.langSelectorDropdown}>
                         <Link to={originalPath} language="en">English</Link>
                         <Link to={originalPath} language="zh">中文</Link>

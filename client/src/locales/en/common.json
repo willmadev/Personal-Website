@@ -11,5 +11,13 @@
         "about": "About",
         "projects": "Projects",
         "contact": "Contact"
+    },
+    "labels": {
+        "languageSelector": "Language Selector",
+        "email": "Email",
+        "linkedin": "Linkedin",
+        "github": "Github",
+        "instagram": "Instagram",
+        "telegram": "Telegram"
     }
 }
