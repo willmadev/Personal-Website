@@ -1,5 +1,5 @@
 import * as React from "react"
-import { FaLinkedin, FaGithub, FaInstagram, FaTelegramPlane } from 'react-icons/fa'
+import { FaEnvelope, FaLinkedin, FaGithub, FaInstagram, FaTelegramPlane } from 'react-icons/fa'
 import { graphql } from "gatsby"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 
@@ -28,17 +28,20 @@ export default function Contact() {
                     <div className={styles.socialsContainer}>
                         <h2>{t("contact:socials.header", "Follow My Socials")}</h2>
                         <div className={styles.socialLinkContainer}>
+                            <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="mailto:contact@willma.me">
+                                <FaEnvelope/>  contact@willma.me
+                            </a>
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/willmas-here/">
-                                <FaLinkedin/> @willmas-here
+                                <FaLinkedin/>  willmas-here
                             </a>
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://github.com/willmas-here/">
-                                <FaGithub/> @willmas-here
+                                <FaGithub/>  willmas-here
                             </a>
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/willmas_here/">
-                                <FaInstagram/> @willmas_here
+                                <FaInstagram/>  @willmas_here
                             </a>
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://t.me/willmas_here/">
-                                <FaTelegramPlane/> @willmas_here
+                                <FaTelegramPlane/>  @willmas_here
                             </a>
                         </div>
                     </div>
