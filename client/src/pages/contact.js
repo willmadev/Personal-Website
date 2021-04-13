@@ -37,8 +37,8 @@ export default function Contact() {
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://github.com/willmas-here/">
                                 <FaGithub/>  willmas-here
                             </a>
-                            <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/willmas_here/">
-                                <FaInstagram/>  @willmas_here
+                            <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/willmadev/">
+                                <FaInstagram/>  @willmadev
                             </a>
                             <a className={styles.socialLink} target="_blank" rel="noopener noreferrer" href="https://t.me/willmas_here/">
                                 <FaTelegramPlane/>  @willmas_here

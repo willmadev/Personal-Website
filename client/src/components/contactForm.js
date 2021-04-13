@@ -12,7 +12,6 @@ function encode(data) {
 class ContactForm extends React.Component {
     constructor(props){
         super(props);
-        this.formRef = createRef()
         this.state = {
             name: "",
             email: "",
@@ -36,7 +35,6 @@ class ContactForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const form = this.formRef.current;
         
         fetch("/", {
             method: "POST",
@@ -44,7 +42,7 @@ class ContactForm extends React.Component {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: encode({
-                'form-name': form.getAttribute('name'),
+                'form-name': "contact",
                 ...this.state,
             }),
         })

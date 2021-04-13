@@ -20,7 +20,7 @@ export default function Projects({ data }) {
                 <div className={styles.container}>
                     {data.allMarkdownRemark.edges.map(({ node }) => (
                         <Link to={node.frontmatter.path} key={node.id} className={styles.projectCard}>
-                            <GatsbyImage className={styles.projectCardImage} image={node.fields.featuredImage.childImageSharp.gatsbyImageData}/>
+                            <GatsbyImage image={node.fields.featuredImage.childImageSharp.gatsbyImageData}/>
                             <div className={styles.projectCardBody}>
                                 <h2>{node.frontmatter.title}</h2>
                                 <p>{node.frontmatter.summary}</p>
