@@ -18,43 +18,10 @@ This was my first time using React, so there was a lot I needed to learn from co
 
 I used the [React I18next plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-i18next/) to implement internationalization and add chinese translations to my website. While the plugin was relatively straightforward, it still took me a bit to understand how it worked. In the code block underneath I created a small example using the `useTranslation` hook.
 
-```javascript
-import { useTranslation } from "gatsby-plugin-react-i18next"
-
-export default function Page() {
-  const { t } = useTranslation();
-  return(
-    <p> {t("page:text")} </p>
-  )
-}
-```
+`gist:willmas-here/4504e930af36ef716d4698a326dae2a3#page.js`
 
 In `gatsby-config.js` the following block needs to be put into the plugins list.
 
-```javascript
-{
-  resolve: `gatsby-source-filesystem`,
-  options: {
-    name: `locale`,
-    path: `${__dirname}/src/locales`,
-  },
-},
-{
-  resolve: `gatsby-plugin-react-i18next`,
-  options: {
-    localJsonSourceName: `locale`,
-    // the language codes of all the languages you're using
-    languages: [`en`, `zh`],
-    defaultLanguage: `en`,
-    // the url of your website
-    siteUrl: `https://willma.me`,
-    i18nextOptions: {
-      interpolation: {
-        escapeValue: false
-      },
-    },
-  }
-},
-```
+`gist:willmas-here/4504e930af36ef716d4698a326dae2a3#config.js`
 
 ### Blog
