@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { createRef } from "react"
 import { withTranslation } from "react-i18next";
 
 import * as styles from "../styles/contactForm.module.css"
@@ -35,7 +35,6 @@ class ContactForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const form = event.target;
         
         fetch("/", {
             method: "POST",
@@ -43,7 +42,7 @@ class ContactForm extends React.Component {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: encode({
-                'form-name': form.getAttribute('name'),
+                'form-name': "contact",
                 ...this.state,
             }),
         })

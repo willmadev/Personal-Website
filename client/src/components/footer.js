@@ -40,7 +40,7 @@ export default function Footer(){
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={t("common:labels.instagram", "Instagram")}
-                        href="https://www.instagram.com/willmas_here/">
+                        href="https://www.instagram.com/willmadev/">
                             <FaInstagram/>
                     </a>
                     <a

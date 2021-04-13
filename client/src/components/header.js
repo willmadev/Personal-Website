@@ -71,10 +71,10 @@ export default function Header() {
                 <FaBars className={styles.menuIcon} onClick={() => setMobileNav(true)}/>
                 <ul className={mobileNavOpen ? `${styles.mobileNavMenu} ${styles.active}`: styles.mobileNavMenu}>
                     <FaTimes className={styles.menuCloseIcon} onClick={() => setMobileNav(false)}/>
-                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/">{t("common:links.home", "Home")}</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/about/">{t("common:links.about", "About")}</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/projects/">{t("common:links.projects", "Projects")}</Link></li>
-                    <li><Link className={styles.mobileNavItem} onClick={() => setMobileNav(false)} to="/contact/">{t("common:links.contact", "Contact")}</Link></li>
+                    <li><Link onClick={() => setMobileNav(false)} to="/">{t("common:links.home", "Home")}</Link></li>
+                    <li><Link onClick={() => setMobileNav(false)} to="/about/">{t("common:links.about", "About")}</Link></li>
+                    <li><Link onClick={() => setMobileNav(false)} to="/projects/">{t("common:links.projects", "Projects")}</Link></li>
+                    <li><Link onClick={() => setMobileNav(false)} to="/contact/">{t("common:links.contact", "Contact")}</Link></li>
                     <div className={styles.mobileNavLangSelector}>
                         <Link to={originalPath} language="en" onClick={() => setMobileNav(false)}>English</Link>
                         <Link to={originalPath} language="zh" onClick={() => setMobileNav(false)}>中文</Link>

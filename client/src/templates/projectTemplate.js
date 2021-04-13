@@ -20,11 +20,9 @@ export default function Template({data}) {
                 lang="en"
             />
             <Layout pageTitle={frontmatter.title}>
-                <div className={styles.frontmatter}>
+                <div>
                     <div className={styles.meta}>
-                        <p className={styles.date}>
-                            Written by Willma | Last Updated {frontmatter.date}
-                        </p>
+                        <p className={styles.date}>Written by Willma | Last Updated {frontmatter.date}</p>
                         <p className={styles.summary}>{frontmatter.summary}</p>
                     </div>
                     <GatsbyImage className={styles.featuredImage} image={markdownRemark.fields.featuredImage.childImageSharp.gatsbyImageData} />
