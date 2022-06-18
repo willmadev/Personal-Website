@@ -41,3 +41,38 @@ For the blog, I used [Netlify's CMS](https://www.netlifycms.org/) which is free 
 ## Conclusion
 
 I had a fun time working on this simple project and definitely not pulling my hair out googling bugs :). But in all seriousness, I do feel more prepared to tackle some more complicated projects using React in the future.
+
+
+
+```typescript
+import { model, models, Schema } from "mongoose";
+
+const SongSchema = new Schema({
+  title: String,
+  artist: String,
+  user: String,
+  uri: String,
+});
+
+const SessionSchema = new Schema({
+  code: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  queue: [SongSchema],
+  currentTrack: {
+    type: Number,
+    default: -1,
+  },
+  participants: [String],
+  state: {
+    type: String,
+    default: "stopped",
+  },
+});
+
+const Session = models.Session || model("Session", SessionSchema);
+
+export default Session;
+```
