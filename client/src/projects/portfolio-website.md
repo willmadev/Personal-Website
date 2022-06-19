@@ -22,57 +22,85 @@ I used the [React I18next plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin
 
 In `gatsby-config.js` the following block needs to be put into the plugins list.
 
-`gist:willmas-here/4504e930af36ef716d4698a326dae2a3#gatsby-config.js`
+```javascript
+{
+  resolve: `gatsby-source-filesystem`,
+  options: {
+    name: `locale`,
+    path: `${__dirname}/src/locales`,
+  },
+},
+{
+  resolve: `gatsby-plugin-react-i18next`,
+  options: {
+    localJsonSourceName: `locale`,
+    // the language codes of all the languages you're using
+    languages: [`en`, `zh`],
+    defaultLanguage: `en`,
+    // the url of your website
+    siteUrl: `https://willma.me`,
+    i18nextOptions: {
+      interpolation: {
+        escapeValue: false
+      },
+    },
+  }
+},
+```
 
 Next, create a folder `locales` in the `src` folder. This folder will house all of the translations. In the `locales` folder, create a folder for each language, and create JSON files that will house the actual translations. I created a JSON file for each page and a common JSON file for everything that was reused (headers, links, etc). Finally, I implemented the translations into the components. In the code block underneath I created a small example with the `useTranslation` hook.
 
-`gist:willmas-here/4504e930af36ef716d4698a326dae2a3#page.js?lines=1-8` 
+```javascript
+import { useTranslation } from "gatsby-plugin-react-i18next"
+
+export default function Page() {
+  const { t } = useTranslation();
+  return(
+    <p> {t("page:text")} </p>
+  )
+}
+```
 
 On each page with translations, there also needs to be a page query for the translations shown below.
 
-`gist:willmas-here/4504e930af36ef716d4698a326dae2a3#page.js?lines=10-24` 
+```javascript
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(
+      filter: {ns: {in: ["page", "common"]}, language: {eq: $language}}
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
+```
 
 ### Blog
 
 For the blog, I used [Netlify's CMS](https://www.netlifycms.org/) which is free and not too difficult to implement. I originally wanted to code the backend of the blog and the form myself using NodeJS, but ultimately decided it was overkill and it would be much easier, faster and cheaper to just use Netlify's CMS and form handling. I basically followed the [tutorial](https://www.gatsbyjs.com/docs/tutorial/) Gatsby had on their website, specifically parts 4-8. It taught me the basics of queries with graphQL and how data worked in Gatsby. I had difficulty with images in the frontmatter using the Netlify CMS, since it outputted absolute paths from the assets folder. There's a [plugin](https://www.gatsbyjs.com/plugins/gatsby-remark-relative-images/) that converts those paths into relative paths usable by the `gatsby-remark-images` plugin, but I couldn't get it to work. Eventually I decided to manually change the paths as documented below, and instead of using querying `frontmatter` for the image, I would query `fields`.
 
-`gist:willmas-here/4504e930af36ef716d4698a326dae2a3#gatsby-node.js` 
+```javascript
+const path = require(`path`)
+
+exports.onCreateNode = ({ node, actions }) => {
+    const { createNodeField } = actions
+    if (node.internal.type === `MarkdownRemark`) {
+        let featuredImage = `../../static/${node.frontmatter.featuredImage}`
+        createNodeField({
+            node,
+            name: `featuredImage`,
+            value: featuredImage
+        })
+    }
+}
+```
 
 ## Conclusion
 
 I had a fun time working on this simple project and definitely not pulling my hair out googling bugs :). But in all seriousness, I do feel more prepared to tackle some more complicated projects using React in the future.
-
-
-
-```typescript
-import { model, models, Schema } from "mongoose";
-
-const SongSchema = new Schema({
-  title: String,
-  artist: String,
-  user: String,
-  uri: String,
-});
-
-const SessionSchema = new Schema({
-  code: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
-  queue: [SongSchema],
-  currentTrack: {
-    type: Number,
-    default: -1,
-  },
-  participants: [String],
-  state: {
-    type: String,
-    default: "stopped",
-  },
-});
-
-const Session = models.Session || model("Session", SessionSchema);
-
-export default Session;
-```

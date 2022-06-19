@@ -1,64 +1,65 @@
-.meta{
-    width: 90%;
-    text-align: center;
-    margin: auto;
+.meta {
+  width: 90%;
+  text-align: center;
+  margin: auto;
 }
 
-.date{
-    font-size: 0.8rem;
-    margin-top: -30px;
+.date {
+  font-size: 0.8rem;
+  margin-top: -30px;
 }
 
-.summary{
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-top: 20px;
-    margin-bottom: 40px;
+.summary {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
-.featuredImage{
+.featuredImage {
+  width: 100%;
+}
+
+.main * {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.main p > img {
+  margin-left: -5%;
+  width: 110%;
+}
+
+.main h2 {
+  margin-top: 33px;
+}
+
+.main h3 {
+  margin-top: 26px;
+}
+
+.main ol li,
+.main ul li {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.main blockquote {
+  padding: 20px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .meta {
     width: 100%;
-}
+  }
 
-.main *{
-    width: 90%;
-    margin: 10px auto;
-}
-
-.main p > img{
-    margin-left: -5%;
+  .featuredImage {
     width: 110%;
-}
+    margin-left: -5%;
+  }
 
-.main h2{
-    margin-top: 33px;
-}
-
-.main h3{
-    margin-top: 26px;
-}
-
-.main ol li, .main ul li{
-    font-family: "Noto Sans SC", sans-serif;
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-.main blockquote{
-    padding: 20px 0px;
-}
-
-@media only screen and (max-width: 600px){
-    .meta{
-        width: 100%;
-    }
-
-    .featuredImage{
-        width: 110%;
-        margin-left: -5%;
-    }
-
-    .main *{
-        width: 100%;
-    }
+  .main * {
+    width: 100%;
+  }
 }

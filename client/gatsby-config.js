@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Willma's Here`,
-    description: "Hi! I'm Willma. I'm a junior at The Webb Schools in California, " + 
-      "and I'm based in Hong Kong. Over the years, I have learned a lot about multiple areas, " + 
+    description:
+      "Hi! I'm Willma. I'm a junior at The Webb Schools in California, " +
+      "and I'm based in Hong Kong. Over the years, I have learned a lot about multiple areas, " +
       "from game development to web development. I am currently learning React and Gatsby, as well as Node JS.",
     author: `Willma`,
     siteUrl: "https://willma.me/",
-    
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -23,7 +23,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-css-modules'
+      resolve: "gatsby-plugin-react-css-modules",
     },
     `gatsby-plugin-gatsby-cloud`,
     {
@@ -42,10 +42,10 @@ module.exports = {
         siteUrl: `https://willma.me`,
         i18nextOptions: {
           interpolation: {
-            escapeValue: false
+            escapeValue: false,
           },
         },
-      }
+      },
     },
 
     {
@@ -53,19 +53,16 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-embed-gist`,
-            options: {
-              username: "willmas-here"
-            }
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1920
-            }
+              maxWidth: 1920,
+            },
           },
-        ]
-      }
+          {
+            resolve: `gatsby-remark-highlight-code`,
+          },
+        ],
+      },
     },
 
     // projects static files
@@ -91,17 +88,12 @@ module.exports = {
       },
     },
 
-    
-    
-
     // images
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
 
     `gatsby-plugin-netlify-cms`,
-
-
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
